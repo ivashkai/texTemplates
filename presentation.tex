@@ -1,0 +1,87 @@
+\documentclass[aspectratio=169]{beamer}
+
+
+% Подключаем пакеты
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{etoolbox} % чтобы убрать логотип на последнем слайде
+
+
+% Цветовая схема
+
+\definecolor{maincolor}{HTML}{2E3192} % Глубокий синий
+\definecolor{bgcolor}{HTML}{F5F5F5}   % Светлый фон
+\definecolor{altcolor}{HTML}{D9E1F2}  % Голубой блок
+\definecolor{textcolor}{HTML}{000000} % Основной текст
+\definecolor{linkcolor}{HTML}{D7263D} % Красные ссылки
+
+
+% Цвета элементов
+
+\setbeamercolor{title}{fg=white, bg=maincolor}
+\setbeamercolor{frametitle}{fg=white, bg=maincolor}
+\setbeamercolor{background canvas}{bg=bgcolor}
+\setbeamercolor{normal text}{fg=textcolor, bg=bgcolor}
+\setbeamercolor{block title}{fg=white, bg=maincolor}
+\setbeamercolor{block body}{fg=textcolor, bg=altcolor}
+\setbeamercolor{itemize item}{fg=maincolor}
+
+
+% Настройки гиперссылок
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    urlcolor=linkcolor,
+    citecolor=linkcolor
+}
+
+
+% Тема оформления
+
+\useoutertheme{shadow}
+\useinnertheme{rounded}
+\usefonttheme{serif}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}[frame number]
+
+
+% Пользовательские макросы
+
+\newcommand{\highlight}[1]{\textcolor{linkcolor}{\textbf{#1}}}
+
+
+% Настройки логотипа
+
+\newcommand{\unilogo}{logo.png} % путь к логотипу
+
+% Показываем логотип на каждом слайде
+\logo{\includegraphics[height=0.9cm]{\unilogo}}
+
+% лого нет на последнем слайде:
+\AtBeginShipoutOriginalShipout
+\AtBeginShipout{
+  \ifnum\value{framenumber}=\inserttotalframenumber
+    \global\setbox\beamer@logo=\box\voidb@x
+  \fi
+}
+
+
+% Титульный слайд с логотипом
+
+\defbeamertemplate*{title page}{customized}[1][]{
+    \begin{center}
+        \includegraphics[width=2.5cm]{\unilogo}\par\vspace{1cm}
+        {\usebeamercolor[fg]{title}\LARGE\textbf{\inserttitle}\par}
+        \vspace{0.5cm}
+        {\large\insertauthor\par}
+        \vspace{0.3cm}
+        {\small\insertdate\par}
+    \end{center}
+}
