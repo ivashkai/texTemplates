@@ -1,0 +1,52 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath} % Для математических формул
+\usepackage{amssymb} % Для дополнительных математических символов
+\usepackage{amsfonts} % Для математических шрифтов
+\usepackage{geometry} % Пакет для настройки полей страницы
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm} % Настройки полей
+\usepackage{tabularx} % Для автоматической подгонки таблиц
+\usepackage{array} % Для настройки автопереноса текста
+\usepackage{enumitem} % Для настройки списков
+\usepackage{graphicx} % Для вставки изображений
+\usepackage{xcolor} % Для цветов ссылок
+\usepackage{hyperref} % Для гиперссылок
+\usepackage{fancyhdr} % Для колонтитулов
+\usepackage{titlesec} % Для настройки заголовков секций
+\usepackage{tcolorbox} % Для цветных блоков (заметки, теоремы и т.д.)
+
+% Настройка внешнего вида гиперссылок (синие ссылки)
+\hypersetup{
+    colorlinks=true,     % Включает цветные ссылки
+    linkcolor=blue,      % Цвет внутренних ссылок (например, на секции)
+    urlcolor=blue,       % Цвет URL-ссылок
+    citecolor=blue,      % Цвет ссылок на источники
+    pdfborder={0 0 0}    % Убирает рамки вокруг ссылок
+}
+
+% Настройка колонтитулов
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark} % Заголовок секции слева
+\fancyfoot[C]{\thepage} % Номер страницы в центре снизу
+
+% Цветной блок для теорем, замечаний и определений
+\tcolorboxenvironment{theorem}{
+  colframe=black, colback=gray!10, coltitle=white, fonttitle=\bfseries, title=\textbf{Теорема}
+}
+\tcolorboxenvironment{remark}{
+  colframe=black, colback=gray!10, coltitle=white, fonttitle=\bfseries, title=\textbf{Замечание}
+}
+\tcolorboxenvironment{definition}{
+  colframe=black, colback=gray!10, coltitle=white, fonttitle=\bfseries, title=\textbf{Определение}
+}
+
+\begin{document}
+
+\title{}
+\author{}
+\date{}
+\maketitle
+
+\end{document}
